@@ -1,26 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  // const stateArray = useState('hello')
+  // const value = stateArray[0] // 'hello'
+  // const setValue = stateArray[1] // function () { // changes the value }
+
+  const [value, setValue] = useState('hello')
+
+  function sayClick () {
+    console.log('click')
+
+    if (value === 'hello') {
+      setValue('goodbye')
+    } else {
+      setValue('hello')
+    }
+  }
+
+  return <main>
+    {value}
+
+    <button onClick={sayClick}>
+      Click me
+    </button>
+
+    <button
+      onClick={
+        () => console.log('inline arrow')
+      }
+    >
+      <img width='400px' height='200px' src='https://miro.medium.com/max/4000/1*qSe6kCCaR4HVBrwNOEjH0Q.jpeg' />
+    </button>
+  </main>
 }
 
 export default App;
